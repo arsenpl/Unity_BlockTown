@@ -29,7 +29,7 @@ public class Scores : MonoBehaviour
     {
         _bestScore = BinaryDataStream.Read<BestScoreData>(_bestScorekey);
         yield return new WaitForEndOfFrame();
-        Debug.Log("READ BEST: "+_bestScore.score);
+        //Debug.Log("READ BEST: "+_bestScore.score);
         GameEvents.UpdateBestScoreBar(currScore, _bestScore.score);
 
     }
@@ -50,6 +50,7 @@ public class Scores : MonoBehaviour
     {
         GameEvents.AddScore -= AddScore;
         GameEvents.GameOver -= saveBestScore;
+
     }
 
     public void saveBestScore(bool newbest)
@@ -74,6 +75,7 @@ public class Scores : MonoBehaviour
 
     private void UpdateSquareColor()
     {
+        //Debug.Log("Updating color " + squareTextureData.currentColor);
         if(GameEvents.UpdateSquareColor != null && currScore>=squareTextureData.tresholdVal)
         {
             squareTextureData.UpdateColor(currScore);

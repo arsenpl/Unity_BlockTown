@@ -237,7 +237,7 @@ public class Grid : MonoBehaviour
         var bonusSc = PlayColorBonus();
         totalScore += bonusSc;
         GameEvents.AddScore(totalScore);
-        Debug.Log("TOTAL SCORE"+totalScore);
+        //Debug.Log("TOTAL SCORE"+totalScore);
         CheckifLost();
     }
 
@@ -251,13 +251,13 @@ public class Grid : MonoBehaviour
             if(colorsInGridAft.Contains(sqcolor)==false)
             {
                 colorBonus = sqcolor;
-                Debug.Log("Bonus color: " + sqcolor+" "+colorBonus);
+                //Debug.Log("Bonus color: " + sqcolor+" "+colorBonus);
             }
         }
 
         if(colorBonus == Config.SquareColor.NotSet)
         {
-            Debug.Log("Cannot find bonus");
+            //Debug.Log("Cannot find bonus");
             return 0;
         }
 

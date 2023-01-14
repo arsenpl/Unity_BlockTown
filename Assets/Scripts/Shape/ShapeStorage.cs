@@ -19,11 +19,14 @@ public class ShapeStorage : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log("CreatingShapes");
+        GameEvents.ResetColor();
         foreach(var shape in shapeList)
         {
             var shapeIndex = UnityEngine.Random.Range(0, shapeData.Count);
             shape.CreateShape(shapeData[shapeIndex]);
         }
+        
     }
 
     public Shape GetCurrentSelectedShape()
@@ -35,7 +38,7 @@ public class ShapeStorage : MonoBehaviour
                 return shape;
             }
         }
-        Debug.LogError("There is no shape selected");
+        //Debug.LogError("There is no shape selected");
         return null;
     }
 

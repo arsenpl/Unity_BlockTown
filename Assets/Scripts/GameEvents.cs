@@ -7,6 +7,8 @@ public class GameEvents : MonoBehaviour
 {
     public static Action<bool> GameOver;
 
+    public static Action ResetColor;
+
     public static Action<int> GameScore;
 
     public static Action<int> AddScore;

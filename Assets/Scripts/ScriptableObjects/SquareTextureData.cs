@@ -14,7 +14,7 @@ public class SquareTextureData : ScriptableObject
     }
 
     public int tresholdVal;
-    private const int startTreshholdVal = 50;
+    private const int startTreshholdVal = 80;
     public List<TextureData> activesquareTextures;
 
     public Config.SquareColor currentColor;
@@ -51,6 +51,7 @@ public class SquareTextureData : ScriptableObject
 
     public void SetStartColor()
     {
+        //Debug.Log("SetStartColor");
         tresholdVal=startTreshholdVal;
         currentColor = activesquareTextures[0].squareColor;
         nextColor = activesquareTextures[1].squareColor;
@@ -64,5 +65,12 @@ public class SquareTextureData : ScriptableObject
     private void OnEnable()
     {
         SetStartColor();
+        GameEvents.ResetColor += SetStartColor;
     }
+
+    private void OnDisable()
+    {
+        GameEvents.ResetColor -= SetStartColor;
+    }
+
 }
